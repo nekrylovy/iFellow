@@ -6,6 +6,7 @@
             "label": "Build",
             "command": "make",
             "args": [
+                "-s",
                 "-j8",
                 "-C",
                 "${workspaceFolder}/build"
