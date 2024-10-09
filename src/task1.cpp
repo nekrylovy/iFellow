@@ -10,12 +10,16 @@ double RandomArray::f_rand() noexcept {
 RandomArray::RandomArray() {
     while (1) {
         cout << "Enter array size: ";
-        cin >> arrSize;
-        if (arrSize < 0) {
+        if ((cin >> arrSize).good()) {
+            if (arrSize < 0) {
             cerr << "Size cannot be less than zero\n";
-        } else {
-            break;
+            } else {
+                break;
+            }
         }
+        cin.clear();
+        cin.ignore();
+        cerr << "Invalid input!\n";
     }
     array = new double[arrSize];
     if (!array) {
